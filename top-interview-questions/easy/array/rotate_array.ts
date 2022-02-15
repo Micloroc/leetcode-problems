@@ -10,6 +10,5 @@ function rotate(nums: number[], k: number): void {
             nums[targetIndex - auxNums.length ] = value;
         else
             nums[targetIndex] = value;
-
     });
 };
