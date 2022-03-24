@@ -26,18 +26,17 @@ class ListNode {
     }
 }
 
-function swapPairs(head: ListNode | null): ListNode | null {
+function reverseList(head: ListNode | null): ListNode | null {
     if (!head) return null;
-    const nextNode = head.next;
-    let nextHead = nextNode?.next;
-
+    let nextNode = head.next;
     if (!nextNode) return head;
-    if (!nextHead) nextHead = null;
 
-    if (nextHead) nextHead = swapPairs(nextHead);
+    const reversedListFirstNode = reverseList(nextNode);
 
     nextNode.next = head;
-    head.next = nextHead;
+    head.next = null;
 
-    return nextNode;
+    if (!reversedListFirstNode) return nextNode;
+    return reversedListFirstNode;
+
 }
